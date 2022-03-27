@@ -1,0 +1,11 @@
+<div class="card text-dark bg-light m-1 mt-5" style="max-width: 18rem;">
+  <div class="card-header"><h3>{{ bmibtnval.name }}</h3></div>
+  <div class="card-body">
+    <div cdkDropList id="{{bmibtnval.name}}" class="example-box"  [cdkDropListData]="bmibtnval.riskvalue" [cdkDropListConnectedTo]="allDropLists"  (cdkDropListDropped)="drag($event)">
+      <button [style.backgroundColor]="item.substring(0,7)" class="addbtn" id="{{idx}}" *ngFor="let item of bmibtnval.riskvalue; index as idx" class="riskbutton" cdkDrag cdkDragPreview="true" >{{item.substring(10,item.length)}}</button>
+    </div>
+  </div>
+</div>
+
+
+

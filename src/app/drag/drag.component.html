@@ -1,0 +1,118 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-9">
+        <mat-tab-group animationDuration="0ms">
+          <mat-tab label="Insights">
+
+            <div class="row medifit-bmi-box ">
+              <div class="container">
+                <p>BMI</p>
+                <div class="progress-bar1"  cdkDropList id="BMI1List"  #bmiList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled  [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)">
+                  <div class="circle" id="circle" #bmicircle   (cdkDragMoved)="onbmimove()" cdkDrag >{{graphvalues[0]}}</div>
+                  <div class="BMI1" *ngFor="let bmi of BMI1"><div>{{bmi}}</div> </div>
+                </div>
+                <span class="bmiValues">0</span>
+                <span class="bmiValues">18.5</span>
+                <span class="bmiValues">23</span>
+                <span class="bmiValues">25</span>
+                <span class="bmiValues">30</span>
+                <span class="bmiValues">40</span>
+                <span class="bmiValues">50</span>
+                <span class="bmiValues">&gt;50</span>
+              </div>
+            </div>
+
+            <!--fat row-->
+            <div class="row medifit-bmi-box" >
+              <div class="container">
+                <p>Fat %</p>
+                <div class="progress-bar2" cdkDropList id="FATList" #fatList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)" >
+                  <div class="circle" #fatcircle cdkDrag (cdkDragMoved)="onfatmove()">{{graphvalues[1]}}</div>
+                  <div class="FAT" *ngFor="let FAT of FAT"> <div>{{FAT}}</div> </div>
+                </div>
+                <span class="bmi2Values">0</span>
+                <span class="bmi2Values">10%</span>
+                <span class="bmi2Values">20%</span>
+                <span class="bmi2Values">30%</span>
+                <span class="bmi2Values">40%</span>
+                <span class="bmi2Values">50%</span>
+                <span id="bmi2">60%</span>
+              </div>
+            </div>
+
+            <!--Visceral Fat row-->
+            <div class="row medifit-bmi-box">
+              <div class="container">
+                <p>Visceral Fat</p>
+                <div class="progress-bar3" cdkDropList id="VisceralList" #VisceralList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)" >
+                  <div class="circle" #visceralfatcircle cdkDrag (cdkDragMoved)="onvismove()">{{graphvalues[2]}}</div>
+                  <div class="visceral" *ngFor="let Visceral of Visceral"> <div>{{Visceral}}</div> </div>
+                </div>
+                <span class="bmi2Values">0</span>
+                <span class="bmi2Values">10%</span>
+                <span class="bmi2Values">20%</span>
+                <span class="bmi2Values">30%</span>
+                <span class="bmi2Values">40%</span>
+                <span class="bmi2Values">50%</span>
+                <span id="bmi2">60%</span>
+              </div>
+            </div>
+
+            <!--Skeletal Muscle row-->
+            <div class="row medifit-bmi-box">
+              <div class="container">
+                <p>Skeletal Muscle %</p>
+                <div class="progress-bar4" cdkDropList id="SkeletalList" #SkeletalList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)" >
+                  <div class="circle" #skeletalmusclecircle cdkDrag (cdkDragMoved)="onskmmove()">{{graphvalues[3]}}</div>
+
+                  <div class="skeletal" *ngFor="let Skeletal of Skeletal"> <div>{{Skeletal}}</div> </div>
+                </div>
+                <span class="bmi2Values">0</span>
+                <span class="bmi2Values">10%</span>
+                <span class="bmi2Values">20%</span>
+                <span class="bmi2Values">30%</span>
+                <span class="bmi2Values">40%</span>
+                <span class="bmi2Values">50%</span>
+                <span id="bmi2">60%</span>
+              </div>
+            </div>
+
+            <!--Total Body Water row-->
+            <div class="row medifit-bmi-box" >
+              <div class="container">
+                <p>Total Body Water</p>
+                <div class="progress-bar5" cdkDropList id="TotalList" #TotalList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)" >
+                  <div class="circle" #totalbodywatercircle cdkDrag (cdkDragMoved)="ontbwmove()">{{graphvalues[4]}}</div>
+                  <div class="total" *ngFor="let Total of Total">  <div>{{Total}}</div> </div>
+                </div>
+                <span class="bmi5Values">40%</span>
+                <span class="bmi5Values">50%</span>
+                <span class="bmi5Values">60%</span>
+                <span class="bmi5Values">70%</span>
+              </div>
+            </div>
+
+            <!--Waist to Hip row-->
+            <div class="row medifit-bmi-box">
+              <div class="container">
+                <p>Waist to Hip Ratio</p>
+                <div class="progress-bar6" cdkDropList id="WaistList" #WaistList="cdkDropList" [cdkDropListData]="ListData" cdkDropListSortingDisabled [cdkDropListConnectedTo]="allDropLists" (cdkDropListDropped)="drop($event)" >
+                  <div class="circle" #waisttohipcircle cdkDrag (cdkDragMoved)="onwhrmove()">{{graphvalues[5]}}</div>
+                  <div class="waist" *ngFor="let Waist of Waist"> <div>{{Waist}}</div> </div>
+                </div>
+                <span class="bmi5Values">0.5</span>
+                <span class="bmi5Values">0.9</span>
+                <span class="bmi5Values">1.3</span>
+                <span class="bmi5Values">1.5</span>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+    </div>
+
+    <div class="col-md-3">
+      <app-riskdrop *ngFor="let bmibtnval of bmibtnvalues" [bmicir]=bmicir [fatcir]="fatcir" [viscir]="viscir" [bmibtnval]="bmibtnval" [skmicir]="skmicir" [tbwcir]="tbwcir" [whrcir]="whrcir" [allDropLists]="allDropLists"  (bmibtnvals)="eventHandler($event)"> </app-riskdrop>
+    </div>
+  </div>
+</div>

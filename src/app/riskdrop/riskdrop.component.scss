@@ -1,0 +1,24 @@
+.example-box {
+  padding:5px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  font-size: 14px;
+  height: 300px;
+  margin: 5px;
+  border: none;
+}
+.riskbutton{
+border-radius: 10px;
+width: 100px;
+height: 40px;
+margin: 5px;
+color: white !important;
+border: none;
+}
+:host::ng-deep.card-body {
+padding: 0;
+}
